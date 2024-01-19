@@ -2,32 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer base {
+  section {
+    @apply py-[75px];
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer app {
+  .container {
+    @apply max-w-full w-[1440px] px-5 mx-auto;
+  }
+  .btn {
+    @apply bg-primaryColor py-[15px] px-[35px] rounded-3xl text-white font-[600] mt-[38px];
+  }
+
+  .heading {
+    @apply text-[44px] leading-[54px] font-[700] text-headingColor;
+  }
+
+  .text__para {
+    @apply text-[18px] leading-[30px] font-[400] text-textColor mt-[18px];
+  }
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@media only screen and (max-width: 1024px) {
+  .container {
+    @apply w-full;
+  }
+  .section {
+    @apply py-[35px];
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .heading {
+    @apply w-full;
+  }
+  .text__para {
+    @apply py-[35px];
   }
 }
